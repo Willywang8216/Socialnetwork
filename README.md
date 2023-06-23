@@ -55,5 +55,34 @@ googleapis-common-protos	1.59.1
  'Shows': '43',
  'Trailers': '44'}
 
+## Currently wrapped function
+- authenticate(scopes = SCOPES,storelocation=os.path.join(PROJECT_LOCATION, BRAND_ACCOUNT_NAME + 'token.json'))
+    ''' This function checks if the access token is valid. If not (or nonexistent), it goes through the Oauth2 to obtain 
+    an access token and store it under PROJECT_LOCATION/token.json'''
+- search_name_find_id(name,channelid=BRAND_ACCOUNT_CHANNEL_ID, typetosearch = 'video',numberofresult=5)
+    '''
+    Given a query and type to search. Return a list of result with number of results specified
+    parameters:
+    name: search query
+    channelid: the search scope. If provided, it only search results in that specified channel
+    typeofsearch : video,channel,playlist
+    numbertosearch: Limiting the number of results
+    '''
+- get_recently_uploaded_videos(channel_id=BRAND_ACCOUNT_CHANNEL_ID, max_results=10)
+    '''Get the most recent videos uploaded by the channel  '''  
+- get_playlist_videos(channel_id,playlistname, max_results=50)
+'''THis function gets all uploaded videos in a playlist with max_result amount'''
+- upload_video(status='public',scheduled=None,foldername='Youtubeupload')
+    '''This function uploads videos to a specified brand account with title and description'''
+- get_playlists(channel_id=BRAND_ACCOUNT_CHANNEL_ID)
+- create_playlist(playlist_title,description,status='public',channel_id=BRAND_ACCOUNT_CHANNEL_ID)
+- upload_thumbnail(thumbnail_path=r'D:\Online biz\Vocalized learning\python_project.png', video_id='')
+'''Upload the thumbnail from the local disk to a playlist or a video
+video_id can be playlist_id'''
+- add_to_playlist(video_id,playlist_id,mainvideo=False)
+'''Given a video_id of uploaded video and a playlist_id, add the video to the playlist with the option of whether
+    setting the video to be the main video'''
+- get_category_ids(regionCode='US')
+'''Get the category id of a region given by ISO 3166 regionCode'''
 
 
